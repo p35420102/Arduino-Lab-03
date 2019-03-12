@@ -1,0 +1,21 @@
+1.
+const byte ledPin = 7;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.print("Hello,World\n");
+  pinMode(ledPin, OUTPUT);
+}
+void loop() {
+  if (Serial.available()) {
+    char val = Serial.read();
+    if (val == '1') {
+      digitalWrite(ledPin, HIGH);
+      Serial.print("LED ON\n");
+    }
+    else if (val == '0') {
+      digitalWrite(ledPin, LOW);
+      Serial.print("LED OFF\n");
+    }
+  }
+}
